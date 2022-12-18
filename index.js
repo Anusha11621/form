@@ -36,17 +36,16 @@ model.append(radiobtnValue)
 model.append(terms)
 
 
-let array = [namee,email]
+let values = [namee,email]
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault()
     form.style.display = "none"
     model.style.display = "block"
 
-    for(let data of array){
+    for(let data of values){
         if(data.value == ""){
-            alert('All mandatory fields should be filled')
-            return false
+            alert('All mandatory fields should be filled')   
         }
     }
 
@@ -67,7 +66,7 @@ form.addEventListener('submit',(e)=>{
     terms.style.textDecoration = "underline"
 
     closebtn.addEventListener('click',()=>{
-        form.style.display = "block"
+        form.style.display = "flex"
         model.style.display = "none"
     })
     form.reset();
@@ -91,7 +90,10 @@ namee.addEventListener("blur", function(event) {
   email.addEventListener("blur", function(event) {
     if (event.target.value === "") {
         emailErr.textContent = "Required*";
-    } else {
+    }else if(!(event.target.value.includes('@')&&(event.target.value.includes('.')))){
+        emailErr.textContent = "Enter valid E-mail";
+    }
+    else {
         emailErr.textContent = "";
     }
   });
