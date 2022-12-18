@@ -1,0 +1,79 @@
+body{
+    background-image: linear-gradient(rgb(221, 185, 255),rgb(60, 47, 69));
+    
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    
+    padding: 10%;
+ }
+ form{
+     width: 80vw;
+     background-color: white;
+     padding: 30px;
+     border-radius: 20px;
+     display: flex;
+     flex-direction: column;
+     
+ }
+ .element{
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+     padding: 10px;
+ }
+ .nameErr{
+    color: red;
+    margin: 0px;
+ }
+ .emailErr{
+    color: red;
+    margin: 0px;
+    margin-left: 10px;
+ }
+ .select{
+     height: 30px;
+ }
+ .radiobtn{
+     display: flex;
+     flex-direction: column;
+ }
+ .submit{
+     border: none;
+     padding: 12px;
+     width: 80vw;
+     border-radius: 10px;
+     background-color: rgb(221, 185, 255);
+ }
+ 
+ 
+ .model{
+     background-color: white;
+     width: 80vw;
+     font-size: 20px;
+     padding: 30px;
+     border-radius: 20px;
+ }
+ 
+ .closebtn{
+     position: relative;
+     left:85% ;
+     background-color: white;
+     border: none;
+     font-size: 18px;
+     cursor: pointer;
+ }
+
+ @media(min-width:700px){
+    .form{
+        width: 40vw;
+        
+    }
+    .submit{
+        width: 40vw; 
+    }
+    .model{
+        width: 40vw;
+    }
+ }

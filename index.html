@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <form id="form" class="form">
+        <div class="element">
+            <lable for="name">
+                Your Name:
+            </lable>
+            <input type="text" id="name">
+            <p class="nameErr"></p>
+        </div>
+
+        <div class="element">
+            <lable for="email">
+                E-Mail
+            </lable>
+            <input type="text" id="email">
+        </div>
+        <p class="emailErr"></p>
+        <div class="element ">
+            <label>what do you love</label>
+            <select class="select" id = 'dropdown'>
+                <option value="movies">Movies</option>
+                <option value="Avatar">Avatar</option>
+                <option value="KGF">KGF</option>
+                <option value="Beast">Beast</option>
+                <option value="HarryPorter">Harry Porter</option>
+            </select>
+        </div>
+
+        <div class="element">
+            <label>Choose  a color</label>
+            <input type="color" id="color" value="#ffffff">
+        </div>
+
+        <div class="element">
+            <label>Rate the movie inspection out of 10</label>
+            <input type="range" id="range">
+        </div>
+        <p>Books gener you love?</p>
+        <div class="radiobtn">
+            
+            <div>
+                <input type="radio" name="checked" value="Friction" id="friction">
+                <label for="friction">Friction</label>
+            </div>
+
+            <div>
+                <input type="radio" name="checked" value="Non Friction" id="nonFriction">
+                <label for="nonFriction">Non Friction</label>
+            </div>
+           
+            <div>
+                <input type="radio" name="checked" value="Adventure" id="adventure">
+                <label for="adventure">Adventure</label>
+            </div>
+        </div>
+        <br>
+        <div>
+            <input type="checkbox" id="checkBox">
+            <label for="checkBox">I agree to terms</label>
+        </div>
+        <br>
+        <button class= "submit"  >Submit</button>
+    </form>
+    
+    <div class="model">
+        <button class="closebtn">Close</button>
+    </div>
+    
+    <script src="./index.js"></script>
+
+</body>
+</html>
