@@ -18,36 +18,17 @@ let model = document.querySelector('.model')
 model.style.display = "none"
 
 let closebtn = document.querySelector('.closebtn')
-
-let nameValue =  document.createElement('h3')
-let emailValue = document.createElement('p')
-let dropdownValue = document.createElement('p')
-let colorValue = document.createElement('p')
-let rangeValue = document.createElement('p')
-let radiobtnValue = document.createElement('p')
-let terms = document.createElement('p')
-
-model.append(nameValue)
-model.append(emailValue)
-model.append(dropdownValue)
-model.append(colorValue)
-model.append(rangeValue)
-model.append(radiobtnValue)
-model.append(terms)
-
-
-let values = [namee,email]
-
-form.addEventListener('submit',(e)=>{
-    e.preventDefault()
+console.log(closebtn);
+function creatPopup(){
     form.style.display = "none"
     model.style.display = "block"
-
-    for(let data of values){
-        if(data.value == ""){
-            alert('All mandatory fields should be filled')   
-        }
-    }
+    let nameValue =  document.createElement('h3')
+    let emailValue = document.createElement('p')
+    let dropdownValue = document.createElement('p')
+    let colorValue = document.createElement('p')
+    let rangeValue = document.createElement('p')
+    let radiobtnValue = document.createElement('p')
+    let terms = document.createElement('p')
 
     let gener = ""
     Array.from(radiobtn.children).forEach((data)=>{
@@ -68,15 +49,54 @@ form.addEventListener('submit',(e)=>{
     closebtn.addEventListener('click',()=>{
         form.style.display = "flex"
         model.style.display = "none"
+        Array.from(model.children).forEach((el)=>{
+            el.remove()
+        })
+
+
         
     })
+
+    model.append(nameValue)
+    model.append(emailValue)
+    model.append(dropdownValue)
+    model.append(colorValue)
+    model.append(rangeValue)
+    model.append(radiobtnValue)
+    model.append(terms)
+
+}
+
+function createUI(){
+    
+
+    for(let data of values){
+        if(data.value == ""){
+            alert('All mandatory fields should be filled')   
+           
+        }
+    }
+
+    console.log(checkBox.checked);
     
     if(checkBox.checked == true){
         
     }
     else{
         alert('You forget accept the terms')
+        model.style.display = "none"
     }
+    if(namee.value!="" && email.value !="" && checkBox.checked != false){
+    creatPopup()
+    }
+}
+
+let values = [namee,email]
+
+form.addEventListener('submit',(e)=>{
+
+    e.preventDefault()
+    createUI()
     form.reset();
     
 })
@@ -86,7 +106,10 @@ form.addEventListener('submit',(e)=>{
 namee.addEventListener("blur", function(event) {
     if (event.target.value === "") {
         nameErr.textContent = "Required*";
-    } else {
+    } else if(event.target.value.length >= 20){
+        nameErr.textContent = "Exceeded Maximum limit*";
+    }
+    else {
         nameErr.textContent = "";
     }
   });
