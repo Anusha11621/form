@@ -12,7 +12,7 @@ let nameErr = document.querySelector('.nameErr')
 let emailErr = document.querySelector('.emailErr')
 
 let checkBox = document.querySelector('#checkBox')
-
+console.log(checkBox.checked);
 
 let model = document.querySelector('.model')
 model.style.display = "none"
@@ -68,15 +68,19 @@ form.addEventListener('submit',(e)=>{
     closebtn.addEventListener('click',()=>{
         form.style.display = "flex"
         model.style.display = "none"
+        
     })
-    form.reset();
+    
     if(checkBox.checked == true){
-        console.log('hii');
+        
     }
     else{
-        console.log("not working");
+        alert('You forget accept the terms')
     }
+    form.reset();
+    
 })
+
 
 
 namee.addEventListener("blur", function(event) {
@@ -87,7 +91,7 @@ namee.addEventListener("blur", function(event) {
     }
   });
 
-  email.addEventListener("blur", function(event) {
+email.addEventListener("blur", function(event) {
     if (event.target.value === "") {
         emailErr.textContent = "Required*";
     }else if(!(event.target.value.includes('@')&&(event.target.value.includes('.')))){
