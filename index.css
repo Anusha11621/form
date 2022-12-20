@@ -47,7 +47,9 @@ body{
      background-color: rgb(221, 185, 255);
  }
  
- 
+ .terms{
+    color: red;
+ }
  .model{
      background-color: white;
      width: 80vw;

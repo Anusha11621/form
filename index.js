@@ -17,8 +17,11 @@ console.log(checkBox.checked);
 let model = document.querySelector('.model')
 model.style.display = "none"
 
+
 let closebtn = document.querySelector('.closebtn')
-console.log(closebtn);
+
+let terms = document.querySelector('.terms')
+
 function creatPopup(){
     form.style.display = "none"
     model.style.display = "block"
@@ -36,7 +39,7 @@ function creatPopup(){
             gener = data.lastElementChild.textContent
         }
     })
-
+    
     nameValue.textContent = `Hello ${namee.value}`
     emailValue.textContent = `Email: ${email.value}`
     dropdownValue.textContent = `You Love: ${dropdown.value}`
@@ -46,15 +49,14 @@ function creatPopup(){
     terms.textContent = "👉You agree to Terms and Condition"
     terms.style.textDecoration = "underline"
 
+
     closebtn.addEventListener('click',()=>{
         form.style.display = "flex"
         model.style.display = "none"
         Array.from(model.children).forEach((el)=>{
             el.remove()
-        })
-
-
-        
+        })  
+        windows.reload()    
     })
 
     model.append(nameValue)
@@ -72,23 +74,26 @@ function createUI(){
 
     for(let data of values){
         if(data.value == ""){
-            alert('All mandatory fields should be filled')   
+            nameErr.textContent = "This filed is mandatory*";
+            emailErr.textContent = "This filed is mandatory*";
            
         }
     }
 
     console.log(checkBox.checked);
     
-    if(checkBox.checked == true){
-        
-    }
-    else{
-        alert('You forget accept the terms')
+    if(checkBox.checked == false){
+        terms.textContent = "You should Accept terms and conditions*"
         model.style.display = "none"
     }
+    else{
+        terms.textContent = ""
+    }
+    
     if(namee.value!="" && email.value !="" && checkBox.checked != false){
     creatPopup()
     }
+    
 }
 
 let values = [namee,email]
@@ -123,4 +128,4 @@ email.addEventListener("blur", function(event) {
     else {
         emailErr.textContent = "";
     }
-  });
+});
